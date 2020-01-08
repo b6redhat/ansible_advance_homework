@@ -1,7 +1,6 @@
 - name: Create Homework Assignment project 
 # Use tower module or tower-cli to create Ansible Tower project. Name of the project is specifed in ./vars/main.yml
   command: |
-    #tower-cli project create -n "test" --scm-type manual --local-path "/root/ansible_advance_homework" --wait
     tower-cli project create -n "{{proj_name}}" --scm-type=git --scm-url="https://github.com/b6redhat/ansible_advance_homework" --wait
 
 
