@@ -33,6 +33,8 @@
     timeout: 180
   register: instancefloatingip
    
+- name: Show "{{ instanceip }}" public IP
+  debug: var=instancefloatingip.floating_ip.floating_ip_address
 
 - name: Wait for server to be available
   wait_for:
