@@ -3,7 +3,7 @@
 - name: Create new server instances
   os_server:
     cloud: ospcloud
-    name: frontend
+    name: "{{ instance_name }}"
     image: rhel-guest
     meta: "group={{ group }}, deployment_name={{ deployment }}"
     flavor: m2.small
