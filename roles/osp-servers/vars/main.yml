@@ -1,15 +1,41 @@
 ---
 
-# vars file for osp-instances
+openstack_instances: 
 
-    webserver_name: web1
+  - instance_name: app1
 
-    databaseserver_name: db1
-
-    flavor_name: m1.small
-
-    webserver_group: webservers
-
-    database_group: databaseservers
+    group: apps
 
     deployment: dev
+
+    security_group_name: apps
+
+
+
+  - instance_name: app2
+
+    group: apps
+
+    deployment: dev
+
+    security_group_name: apps
+
+
+
+  - instance_name: db
+
+    group: appdbs
+
+    deployment: dev
+
+    security_group_name: db
+
+
+
+  - instance_name: frontend
+
+    group: frontends
+
+    deployment: dev
+
+    security_group_name: frontend
