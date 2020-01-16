@@ -3,9 +3,9 @@
 - name: Create new server instances
   os_server:
     cloud: ospcloud
-    name: "{{ instance_name }}"
+    name: frontend
     image: rhel-guest
-    meta: "group={{ group }},deployment_name={{ deployment }}"
+    meta: "group={{ group }}, deployment_name={{ deployment }}"
     flavor: m2.small
     security_groups: "{{ security_group_name }}"
     key_name: ansible_ssh
@@ -20,7 +20,6 @@
       cp /tmp/internal.repo /etc/yum.repos.d/internal.repo
   register: instanceip
 
-
 - name: Add floating IP to Servers
   os_floating_ip:
     cloud: ospcloud
@@ -31,7 +30,7 @@
     wait: true
     timeout: 180
   register: instancefloatingip
-   
+
 - name: Show "{{ instanceip }}" public IP
   debug: var=instancefloatingip.floating_ip.floating_ip_address
 
@@ -41,4 +40,6 @@
     port: 22
     search_regex: OpenSSH
     timeout: 600
-  delegate_to: "{{ inventory_hostname }}"
+  delegate_to" "{{ inventory_hostname }}"
+  
+ 
